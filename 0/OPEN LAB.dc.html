@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:#08080a;color:#eef0f4;font-family:"Pretendard Variable",Pretendard,-apple-system,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden;word-break:keep-all;overflow-wrap:break-word}
+  a{color:#FF0000;text-decoration:none}
+  a:hover{color:#FF0000}
+  ::selection{background:#FF0000;color:#fff}
+  @keyframes cuebob{0%,100%{transform:translateY(0);opacity:.9}50%{transform:translateY(9px);opacity:.4}}
+  @keyframes fadeup{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:translateY(0)}}
+  .reveal{animation:fadeup .9s cubic-bezier(.2,.7,.2,1) both}
+  @keyframes marqL{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  @keyframes marqR{from{transform:translateX(-50%)}to{transform:translateX(0)}}
+</style>
+</helmet>
+<div style="position:relative;z-index:0;min-height:100vh">
+
+  <div style="position:fixed;inset:0;z-index:0;overflow:hidden;background:#050506">
+    <video data-bgvideo src="assets/video/bg1.mp4" muted playsinline preload="auto" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) scale(1.06);min-width:100%;min-height:100%;width:auto;height:auto;object-fit:cover;opacity:{{op1}};transition:opacity 1.6s ease"></video>
+    <video data-bgvideo src="assets/video/bg2.mp4" muted playsinline preload="auto" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) scale(1.06);min-width:100%;min-height:100%;width:auto;height:auto;object-fit:cover;opacity:{{op2}};transition:opacity 1.6s ease"></video>
+    <video data-bgvideo src="assets/video/bg3.mp4" muted playsinline preload="auto" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) scale(1.06);min-width:100%;min-height:100%;width:auto;height:auto;object-fit:cover;opacity:{{op3}};transition:opacity 1.6s ease"></video>
+    <video data-bgvideo src="assets/video/bg4.mp4" muted playsinline preload="auto" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) scale(1.06);min-width:100%;min-height:100%;width:auto;height:auto;object-fit:cover;opacity:{{op4}};transition:opacity 1.6s ease"></video>
+    <video data-bgvideo src="assets/video/bg5.mp4" muted playsinline preload="auto" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) scale(1.06);min-width:100%;min-height:100%;width:auto;height:auto;object-fit:cover;opacity:{{op5}};transition:opacity 1.6s ease"></video>
+    <video data-bgvideo src="assets/video/bg6.mp4" muted playsinline preload="auto" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) scale(1.06);min-width:100%;min-height:100%;width:auto;height:auto;object-fit:cover;opacity:{{op6}};transition:opacity 1.6s ease"></video>
+    <video data-bgvideo src="assets/video/bg7.mp4" muted playsinline preload="auto" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) scale(1.06);min-width:100%;min-height:100%;width:auto;height:auto;object-fit:cover;opacity:{{op7}};transition:opacity 1.6s ease"></video>
+    <div style="position:absolute;inset:0;background:rgba(6,6,8,{{dim}})"></div>
+    <div style="position:absolute;inset:0;background:radial-gradient(130% 100% at 50% 40%,rgba(0,0,0,0) 42%,rgba(0,0,0,.5) 100%)"></div>
+  </div>
+
+  <!-- NAV (solid white bar) -->
+  <nav style="position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:14px clamp(20px,5vw,64px);background:#ffffff;border-bottom:1px solid rgba(0,0,0,.09);box-shadow:0 2px 20px rgba(0,0,0,.14)">
+    <a href="#top" style="display:flex;align-items:center;gap:14px">
+      <img src="assets/logo/openlab.png" alt="OPEN LAB" style="height:23px;width:auto;display:block">
+    </a>
+    <div style="display:{{navLinksDisplay}};align-items:center;gap:clamp(14px,2.4vw,32px)">
+      <a href="#promo" data-spy="promo" style="color:#33353c;font-size:14px;font-weight:600" style-hover="color:#FF0000">영상</a>
+      <a href="#platform" data-spy="platform" style="color:#33353c;font-size:14px;font-weight:600" style-hover="color:#FF0000">플랫폼</a>
+      <a href="#curriculum" data-spy="curriculum" style="color:#33353c;font-size:14px;font-weight:600" style-hover="color:#FF0000">커리큘럼</a>
+      <a href="#space" data-spy="space" style="color:#33353c;font-size:14px;font-weight:600" style-hover="color:#FF0000">공간</a>
+      <a href="#who" data-spy="who" style="color:#33353c;font-size:14px;font-weight:600" style-hover="color:#FF0000">대상</a>
+      <a href="#contact" data-spy="contact" style="color:#33353c;font-size:14px;font-weight:600" style-hover="color:#FF0000">문의</a>
+    </div>
+    <button onClick="{{toggleMenu}}" aria-label="menu" style="display:{{burgerDisplay}};flex-direction:column;justify-content:center;gap:5px;width:42px;height:42px;border:1px solid rgba(0,0,0,.12);border-radius:10px;background:#fff;cursor:pointer;align-items:center">
+      <span style="width:20px;height:2px;background:#14161c;display:block"></span>
+      <span style="width:20px;height:2px;background:#14161c;display:block"></span>
+      <span style="width:20px;height:2px;background:#14161c;display:block"></span>
+    </button>
+  </nav>
+
+  <sc-if value="{{menuOpen}}" hint-placeholder-val="{{false}}">
+    <div style="position:fixed;top:70px;left:0;right:0;z-index:49;background:#fff;border-bottom:1px solid rgba(0,0,0,.09);box-shadow:0 12px 30px rgba(0,0,0,.16);display:flex;flex-direction:column;padding:8px 20px 18px;animation:fadeup .3s ease both">
+      <a href="#promo" onClick="{{closeMenu}}" style="color:#14161c;font-size:16px;font-weight:600;padding:14px 4px;border-bottom:1px solid rgba(0,0,0,.06)">영상</a>
+      <a href="#platform" onClick="{{closeMenu}}" style="color:#14161c;font-size:16px;font-weight:600;padding:14px 4px;border-bottom:1px solid rgba(0,0,0,.06)">플랫폼</a>
+      <a href="#curriculum" onClick="{{closeMenu}}" style="color:#14161c;font-size:16px;font-weight:600;padding:14px 4px;border-bottom:1px solid rgba(0,0,0,.06)">커리큘럼</a>
+      <a href="#space" onClick="{{closeMenu}}" style="color:#14161c;font-size:16px;font-weight:600;padding:14px 4px;border-bottom:1px solid rgba(0,0,0,.06)">공간</a>
+      <a href="#who" onClick="{{closeMenu}}" style="color:#14161c;font-size:16px;font-weight:600;padding:14px 4px;border-bottom:1px solid rgba(0,0,0,.06)">대상</a>
+      <a href="#contact" onClick="{{closeMenu}}" style="margin-top:14px;display:inline-flex;align-items:center;justify-content:center;background:#FF0000;color:#fff;font-size:15px;font-weight:700;padding:13px 18px;border-radius:12px">문의</a>
+    </div>
+  </sc-if>
+
+  <!-- HERO -->
+  <section id="top" style="position:relative;z-index:1;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:130px clamp(20px,6vw,80px) 90px">
+    <div style="position:absolute;inset:0;background:rgba(6,6,8,.5);z-index:0"></div>
+    <div style="position:relative;z-index:1;display:flex;flex-direction:column;align-items:center">
+      <img class="reveal" src="assets/logo/openlab-white.png" alt="OPEN LAB" style="width:min(680px,82vw);height:auto;display:block;margin-bottom:26px;filter:drop-shadow(0 14px 60px rgba(0,0,0,.75))">
+      <div class="reveal" style="font-family:'Space Grotesk',sans-serif;font-size:clamp(11px,1.1vw,13px);letter-spacing:.34em;color:#FF0000;font-weight:600;text-transform:uppercase">Online + Offline Tech-Edu Platform</div>
+      <p class="reveal" style="margin-top:26px;font-size:clamp(13px,1.5vw,19px);line-height:1.9;color:#e2e3e8;white-space:nowrap;text-shadow:0 1px 12px rgba(0,0,0,.55)">아이지의 온라인 이론 학습과 오프라인 실습을 결합한 통합 기술 교육 플랫폼.<br>스마트팩토리부터 피지컬 AI까지, 미래 산업의 기술을 직접 만납니다.</p>
+      <div class="reveal" style="margin-top:34px;display:flex;gap:14px;flex-wrap:wrap;justify-content:center">
+        <a href="#contact" style="display:inline-flex;align-items:center;gap:9px;background:#FF0000;color:#fff;font-size:15px;font-weight:700;padding:14px 26px;border-radius:999px;box-shadow:0 10px 30px rgba(255,0,0,.34);transition:transform .25s,box-shadow .25s" style-hover="transform:translateY(-3px);box-shadow:0 16px 40px rgba(255,0,0,.5)">연수 문의하기 <span style="font-size:17px">→</span></a>
+        <a href="#promo" style="display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.08);color:#fff;font-size:15px;font-weight:700;padding:14px 24px;border-radius:999px;border:1px solid rgba(255,255,255,.28);backdrop-filter:blur(6px);transition:background .25s,transform .25s" style-hover="background:rgba(255,255,255,.16);transform:translateY(-3px)"><span style="display:inline-flex;width:22px;height:22px;border-radius:50%;background:#FF0000;align-items:center;justify-content:center"><svg width="9" height="10" viewBox="0 0 9 10" fill="#fff"><path d="M0 0.6v8.8l8-4.4z"/></svg></span>영상 보기</a>
+      </div>
+      <div class="reveal" style="margin-top:26px;font-family:'Space Grotesk',sans-serif;font-size:14px;letter-spacing:.1em;color:#FF0000;font-weight:600">www.ieg.kr</div>
+    </div>
+    <div style="display:{{hintDisplay}};opacity:{{cueOpacity}};transition:opacity .5s;flex-direction:column;align-items:center;gap:10px;position:absolute;bottom:34px;left:50%;transform:translateX(-50%);z-index:1">
+      <span style="font-family:'Space Grotesk',sans-serif;font-size:11px;letter-spacing:.28em;color:#c6c7cd">SCROLL</span>
+      <span style="width:1px;height:34px;background:linear-gradient(#FF0000,transparent);animation:cuebob 1.8s ease-in-out infinite"></span>
+    </div>
+  </section>
+
+  <!-- PROMO VIDEO -->
+  <section id="promo" style="position:relative;z-index:1;background:rgba(5,5,7,.5);padding:clamp(90px,11vw,150px) clamp(20px,6vw,80px)">
+    <div style="max-width:1080px;margin:0 auto;text-align:center">
+      <div style="font-family:'Space Grotesk',sans-serif;font-size:13px;letter-spacing:.3em;color:#FF0000;font-weight:600;margin-bottom:18px">PROMOTION</div>
+      <h2 style="font-size:clamp(26px,3.8vw,48px);font-weight:800;letter-spacing:-.02em;line-height:1.14;color:#fff;margin-bottom:40px">영상으로 만나는 OPEN LAB</h2>
+      <div style="position:relative;border-radius:20px;overflow:hidden;border:1px solid rgba(255,255,255,.14);box-shadow:0 30px 80px rgba(0,0,0,.5);aspect-ratio:16/9;background:#000">
+        <iframe src="https://www.youtube-nocookie.com/embed/ezuIIXl-p90?rel=0" title="OPEN LAB 홍보영상" loading="lazy" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share" allowfullscreen style="position:absolute;inset:0;width:100%;height:100%;border:0"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- BANNER -->
+  <section id="banner" style="position:relative;z-index:1;padding:0">
+    <div style="position:relative;width:100%;aspect-ratio:1385/768;max-height:78vh;overflow:hidden">
+      <img src="assets/space/openlab-wall.png" alt="OPEN LAB" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block">
+      <div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(6,6,8,.55) 0%,rgba(6,6,8,0) 42%)"></div>
+      <div style="position:absolute;left:clamp(20px,6vw,80px);bottom:clamp(28px,5vw,56px);max-width:32ch">
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:12px;letter-spacing:.3em;color:#FF0000;font-weight:600;margin-bottom:14px">OPEN LAB</div>
+        <h2 style="font-size:clamp(22px,3.2vw,40px);font-weight:800;letter-spacing:-.02em;line-height:1.2;color:#fff;text-shadow:0 2px 20px rgba(0,0,0,.6);white-space:nowrap">기술이 살아 숨 쉬는 공간</h2>
+      </div>
+    </div>
+  </section>
+
+  <!-- PLATFORM -->
+  <section id="platform" style="position:relative;z-index:1;background:rgba(5,5,7,.5);padding:clamp(90px,11vw,150px) clamp(20px,6vw,80px)">
+    <div style="max-width:1240px;margin:0 auto">
+      <div style="text-align:center;max-width:60ch;margin:0 auto 68px">
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:13px;letter-spacing:.3em;color:#FF0000;font-weight:600;margin-bottom:18px">PLATFORM</div>
+        <h2 style="font-size:clamp(28px,4vw,50px);font-weight:800;letter-spacing:-.02em;line-height:1.14;color:#fff">이론과 실습을 하나로 잇다</h2>
+        <p style="margin-top:22px;font-size:clamp(15px,1.4vw,18px);line-height:1.75;color:#cfd0d6;text-wrap:pretty">아이지는 온라인 이론 학습과 오프라인 실습을 결합한 통합 기술 교육 플랫폼을 구축했습니다. 언제 어디서나 이론을 선행 학습하고, OPEN LAB에서 실제 장비로 체득합니다.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:22px;align-items:stretch">
+        <div style="border:1px solid rgba(122,162,255,.28);border-radius:20px;overflow:hidden;background:linear-gradient(180deg,#111725,#0c0e15)">
+          <div style="height:5px;background:linear-gradient(90deg,#3a6df0,#7aa2ff)"></div>
+          <div style="padding:38px clamp(24px,3vw,44px)">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:22px">
+              <span style="font-family:'Space Grotesk',sans-serif;font-size:13px;letter-spacing:.22em;color:#8fb3ff;font-weight:700">ONLINE</span>
+              <span style="font-family:'Space Grotesk',sans-serif;font-size:12px;color:#8a8b92">IEGLAB.COM</span>
+            </div>
+            <h3 style="font-size:24px;font-weight:800;color:#fff;margin-bottom:14px">온라인 이론 학습</h3>
+            <p style="font-size:15px;line-height:1.7;color:#c2c3c9;margin-bottom:26px;min-height:76px">언제 어디서나 접속하는 온라인 이론 학습.<br>체계적인 커리큘럼으로 최신 기술 이론을 미리 학습합니다.</p>
+            <ul style="list-style:none;display:flex;flex-direction:column;gap:12px">
+              <li style="display:flex;gap:10px;align-items:center;font-size:15px;color:#dfe0e5"><span style="color:#8fb3ff">—</span>체계적 이론 커리큘럼</li>
+              <li style="display:flex;gap:10px;align-items:center;font-size:15px;color:#dfe0e5"><span style="color:#8fb3ff">—</span>시·공간 제약 없는 학습</li>
+              <li style="display:flex;gap:10px;align-items:center;font-size:15px;color:#dfe0e5"><span style="color:#8fb3ff">—</span>오프라인 실습과 직접 연계</li>
+            </ul>
+          </div>
+        </div>
+        <div style="border:1px solid rgba(255,42,42,.32);border-radius:20px;overflow:hidden;background:linear-gradient(180deg,#1c1214,#0f0c0d)">
+          <div style="height:5px;background:linear-gradient(90deg,#FF0000,#ff6a4d)"></div>
+          <div style="padding:38px clamp(24px,3vw,44px)">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:22px">
+              <span style="font-family:'Space Grotesk',sans-serif;font-size:13px;letter-spacing:.22em;color:#FF0000;font-weight:700">OFFLINE</span>
+              <span style="font-family:'Space Grotesk',sans-serif;font-size:12px;color:#8a8b92">OPEN LAB</span>
+            </div>
+            <h3 style="font-size:24px;font-weight:800;color:#fff;margin-bottom:14px">오프라인 실습</h3>
+            <p style="font-size:15px;line-height:1.7;color:#c2c3c9;margin-bottom:26px;min-height:76px">최신 교육 장비로 직접 실습.<br>스마트팩토리·로봇·반도체 장비를 손으로 다뤄봅니다.</p>
+            <ul style="list-style:none;display:flex;flex-direction:column;gap:12px">
+              <li style="display:flex;gap:10px;align-items:center;font-size:15px;color:#dfe0e5"><span style="color:#FF0000">—</span>최신 산업용 실습 장비</li>
+              <li style="display:flex;gap:10px;align-items:center;font-size:15px;color:#dfe0e5"><span style="color:#FF0000">—</span>실무 중심 체험형 교육</li>
+              <li style="display:flex;gap:10px;align-items:center;font-size:15px;color:#dfe0e5"><span style="color:#FF0000">—</span>전문 엔지니어 밀착 지도</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPANY -->
+  <section id="company" style="position:relative;z-index:1;padding:clamp(90px,12vw,160px) clamp(20px,6vw,80px)">
+    <div style="max-width:1180px;margin:0 auto">
+      <div style="max-width:56ch">
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:13px;letter-spacing:.3em;color:#FF0000;font-weight:600;margin-bottom:18px">COMPANY · 아이지</div>
+        <h2 style="font-size:clamp(26px,3.6vw,46px);font-weight:800;letter-spacing:-.02em;line-height:1.18;color:#fff;text-shadow:0 2px 20px rgba(0,0,0,.5)">산업 현장과 교육 현장을<br>잇는 기술교육 전문기업</h2>
+        <p style="margin-top:24px;font-size:clamp(15px,1.4vw,18px);line-height:1.8;color:#d3d4da;text-wrap:pretty;text-shadow:0 1px 10px rgba(0,0,0,.5)">아이지는 미래 산업이 요구하는 전문 인재를 양성하기 위해 실무 중심의 기술교육 환경을 구축합니다. 자동화·로봇·전기전자·스마트팩토리 기술을 교육 현장에 적용하도록 장비·실습 시스템·콘텐츠를 개발·공급합니다.</p>
+      </div>
+      <div style="margin-top:56px;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:18px">
+        <sc-for list="{{stats}}" as="s" hint-placeholder-count="4">
+          <div style="border:1px solid rgba(255,255,255,.14);border-radius:16px;padding:30px 26px;background:rgba(12,13,16,.72);backdrop-filter:blur(6px)">
+            <div style="display:flex;align-items:baseline;gap:4px">
+              <span data-count="{{s.value}}" style="font-family:'Space Grotesk',sans-serif;font-size:clamp(34px,4.4vw,52px);font-weight:700;color:#fff;line-height:1">{{s.value}}</span>
+              <span style="font-size:18px;font-weight:700;color:#FF0000">{{s.unit}}</span>
+            </div>
+            <div style="margin-top:12px;font-size:14px;color:#b3b4ba">{{s.label}}</div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- MISSION -->
+  <section id="mission" style="position:relative;z-index:1;background:rgba(5,5,7,.5);padding:clamp(90px,11vw,150px) clamp(20px,6vw,80px)">
+    <div style="max-width:1180px;margin:0 auto">
+      <div style="font-family:'Space Grotesk',sans-serif;font-size:13px;letter-spacing:.3em;color:#FF0000;font-weight:600;margin-bottom:18px">OUR MISSION</div>
+      <h2 style="font-size:clamp(26px,3.8vw,48px);font-weight:800;letter-spacing:-.02em;line-height:1.16;color:#fff;max-width:20ch">산업 현장과 교육 현장을 잇는<br><span style="color:#FF0000">실무 중심 기술교육</span></h2>
+      <p style="margin-top:22px;font-size:clamp(15px,1.4vw,18px);line-height:1.8;color:#cfd0d6;max-width:62ch;text-wrap:pretty">학교와 산업 현장 간 기술 격차를 줄이고, 교원과 교육 관계자가 최신 기술과 장비를 직접 경험하도록 실습 중심의 연수 기회를 제공합니다.</p>
+      <div style="margin-top:56px;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px">
+        <sc-for list="{{missions}}" as="m" hint-placeholder-count="3">
+          <div style="border-top:2px solid #FF0000;padding:26px 4px 0">
+            <div style="font-family:'Space Grotesk',sans-serif;font-size:13px;color:#9a9ba1;margin-bottom:16px">{{m.no}}</div>
+            <h3 style="font-size:21px;font-weight:800;color:#fff;margin-bottom:12px">{{m.t}}</h3>
+            <p style="font-size:15px;line-height:1.7;color:#c2c3c9">{{m.d}}</p>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- CURRICULUM OVERVIEW -->
+  <section id="curriculum" style="position:relative;z-index:1;padding:clamp(90px,12vw,160px) clamp(20px,6vw,80px)">
+    <div style="max-width:1240px;margin:0 auto">
+      <div style="text-align:center;max-width:60ch;margin:0 auto 66px">
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:13px;letter-spacing:.3em;color:#FF0000;font-weight:600;margin-bottom:18px">CURRICULUM</div>
+        <h2 style="font-size:clamp(28px,4vw,52px);font-weight:800;letter-spacing:-.02em;line-height:1.12;color:#fff;text-shadow:0 2px 20px rgba(0,0,0,.5)">첨단기술 교육 분야</h2>
+        <p style="margin-top:20px;font-size:clamp(15px,1.4vw,18px);line-height:1.7;color:#d3d4da;text-shadow:0 1px 10px rgba(0,0,0,.5)">현장이 요구하는 핵심 기술을 여섯 개 분야로 나눠, 이론과 실습을 하나의 커리큘럼으로 연결합니다.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px">
+        <sc-for list="{{overview}}" as="o" hint-placeholder-count="6">
+          <div style="position:relative;border:1px solid rgba(255,255,255,.14);border-radius:18px;padding:32px 30px;background:rgba(12,13,16,.72);backdrop-filter:blur(8px);overflow:hidden;transition:transform .3s cubic-bezier(.2,.7,.2,1),border-color .3s,background .3s" style-hover="border-color:rgba(255,42,42,.55);background:rgba(24,15,16,.85);transform:translateY(-6px)">
+            <div style="position:absolute;top:22px;right:26px;font-family:'Space Grotesk',sans-serif;font-size:44px;font-weight:700;color:rgba(255,255,255,.09);line-height:1">{{o.no}}</div>
+            <div style="font-family:'Space Grotesk',sans-serif;font-size:12px;letter-spacing:.18em;color:#FF0000;font-weight:600;margin-bottom:14px">{{o.en}}</div>
+            <h3 style="font-size:22px;font-weight:800;color:#fff;margin-bottom:12px">{{o.name}}</h3>
+            <p style="font-size:14.5px;line-height:1.65;color:#bcbdc3;max-width:34ch">{{o.d}}</p>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- LAYOUT (isometric renders) -->
+  <section id="layout" style="position:relative;z-index:1;padding:clamp(90px,11vw,150px) clamp(20px,6vw,80px)">
+    <div style="max-width:1280px;margin:0 auto">
+      <div style="text-align:center;max-width:60ch;margin:0 auto 56px">
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:13px;letter-spacing:.3em;color:#FF0000;font-weight:600;margin-bottom:18px">LAYOUT</div>
+        <h2 style="font-size:clamp(26px,3.8vw,48px);font-weight:800;letter-spacing:-.02em;line-height:1.14;color:#fff;text-shadow:0 2px 20px rgba(0,0,0,.5)">하나의 동선으로 연결된 공간</h2>
+      </div>
+      <div style="border:1px solid rgba(0,0,0,.08);border-radius:20px;background:#ffffff;padding:clamp(18px,2.2vw,26px);display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(18px,2.6vw,32px);align-items:center;margin-bottom:18px;box-shadow:0 20px 60px rgba(0,0,0,.35)">
+        <div style="position:relative;border-radius:14px;overflow:hidden;background:#ffffff">
+          <img src="assets/space/interior1.png" alt="전체 평면도" loading="lazy" style="width:100%;height:auto;display:block">
+          <sc-for list="{{zones}}" as="z" hint-placeholder-count="4">
+            <span onMouseenter="{{z.onEnter}}" onMouseleave="{{z.onLeave}}" style="position:absolute;left:{{z.left}};top:{{z.top}};transform:translate(-50%,-50%) scale({{z.scale}});font-size:12px;font-weight:700;color:#fff;background:{{z.pin}};padding:4px 10px;border-radius:7px;white-space:nowrap;box-shadow:0 2px 8px rgba(0,0,0,.35);transition:transform .25s,background .25s;cursor:default">{{z.name}}</span>
+          </sc-for>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <sc-for list="{{zones}}" as="z" hint-placeholder-count="4">
+            <div onMouseenter="{{z.onEnter}}" onMouseleave="{{z.onLeave}}" style="display:flex;align-items:center;gap:16px;padding:14px 18px;border:1px solid {{z.rowBorder}};border-radius:12px;background:{{z.rowBg}};transition:border-color .25s,background .25s">
+              <span style="width:26px;height:26px;flex:none;border-radius:50%;background:#FF0000;color:#fff;font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center">{{z.no}}</span>
+              <span style="font-size:17px;font-weight:800;color:#14161c;flex:none;min-width:96px">{{z.name}}</span>
+              <span style="font-size:14px;color:#4c4d54">{{z.d}}</span>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px">
+        <figure onClick="{{onOpenR2}}" style="border:1px solid rgba(255,255,255,.14);border-radius:18px;overflow:hidden;background:#ffffff;cursor:zoom-in"><div style="aspect-ratio:16/10;overflow:hidden;background:#ffffff"><img src="assets/space/interior2.png" alt="OPEN LAB 공간 구성" loading="lazy" style="width:100%;height:100%;object-fit:contain;display:block;transition:transform .5s" style-hover="transform:scale(1.04)"></div></figure>
+        <figure onClick="{{onOpenR3}}" style="border:1px solid rgba(255,255,255,.14);border-radius:18px;overflow:hidden;background:#ffffff;cursor:zoom-in"><div style="aspect-ratio:16/10;overflow:hidden;background:#ffffff"><img src="assets/space/interior3.png" alt="OPEN LAB 공간 구성" loading="lazy" style="width:100%;height:100%;object-fit:contain;display:block;transition:transform .5s" style-hover="transform:scale(1.04)"></div></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- SPACE -->
+  <section id="space" style="position:relative;z-index:1;background:rgba(5,5,7,.5);padding:clamp(90px,11vw,150px) clamp(20px,6vw,80px)">
+    <div style="max-width:1280px;margin:0 auto">
+      <div style="text-align:center;max-width:62ch;margin:0 auto 30px">
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:13px;letter-spacing:.3em;color:#FF0000;font-weight:600;margin-bottom:18px">OPEN LAB · SPACE</div>
+        <h2 style="font-size:clamp(28px,4vw,50px);font-weight:800;letter-spacing:-.02em;line-height:1.14;color:#fff">미래 기술을 직접 만나다</h2>
+        <p style="margin-top:20px;font-size:clamp(15px,1.4vw,18px);line-height:1.7;color:#cfd0d6;text-wrap:pretty">스마트팩토리 라인부터 협동로봇, VR 실습 장비까지<br>산업 현장의 기술을 눈앞에서 경험하는 체험형 실습 공간입니다.</p>
+      </div>
+      <div style="margin:56px 0 26px;text-align:center;font-family:'Space Grotesk',sans-serif;font-size:12px;letter-spacing:.24em;color:#9a9ba1">네 개의 공간, 하나의 흐름</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px">
+        <sc-for list="{{spaces}}" as="sp" hint-placeholder-count="4">
+          <div onClick="{{sp.onOpen}}" style="position:relative;aspect-ratio:3/4;border-radius:18px;overflow:hidden;background:#16181d;cursor:pointer">
+            <img src="{{sp.img}}" alt="{{sp.name}}" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.2,.7,.2,1)" style-hover="transform:scale(1.07)">
+            <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.05) 28%,rgba(0,0,0,.9) 100%)"></div>
+            <div style="position:absolute;left:0;right:0;bottom:0;padding:24px 22px">
+              <span style="font-family:'Space Grotesk',sans-serif;font-size:11px;letter-spacing:.2em;color:#FF0000">{{sp.en}}</span>
+              <h3 style="font-size:20px;font-weight:800;color:#fff;margin:8px 0 8px">{{sp.name}}</h3>
+              <p style="font-size:13px;line-height:1.55;color:#d7d8de">{{sp.d}}</p>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+
+      <!-- GALLERY marquee -->
+      <div style="margin:64px 0 24px;text-align:center;font-family:'Space Grotesk',sans-serif;font-size:12px;letter-spacing:.24em;color:#9a9ba1">GALLERY · 현장 스케치</div>
+      <div style="overflow:hidden;margin-bottom:14px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)">
+        <div style="display:flex;gap:14px;width:max-content;animation:marqR 55s linear infinite">
+          <sc-for list="{{galleryRow1}}" as="g" hint-placeholder-count="12">
+            <div onClick="{{g.onOpen}}" style="flex:0 0 auto;width:clamp(240px,26vw,340px);aspect-ratio:4/3;border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,.1);cursor:zoom-in">
+              <img src="{{g.src}}" alt="OPEN LAB" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s" style-hover="transform:scale(1.06)">
+            </div>
+          </sc-for>
+        </div>
+      </div>
+      <div style="overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)">
+        <div style="display:flex;gap:14px;width:max-content;animation:marqL 55s linear infinite">
+          <sc-for list="{{galleryRow2}}" as="g" hint-placeholder-count="12">
+            <div onClick="{{g.onOpen}}" style="flex:0 0 auto;width:clamp(240px,26vw,340px);aspect-ratio:4/3;border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,.1);cursor:zoom-in">
+              <img src="{{g.src}}" alt="OPEN LAB" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s" style-hover="transform:scale(1.06)">
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHO -->
+  <section id="who" style="position:relative;z-index:1;padding:clamp(90px,12vw,160px) clamp(20px,6vw,80px)">
+    <div style="max-width:1180px;margin:0 auto">
+      <div style="font-family:'Space Grotesk',sans-serif;font-size:13px;letter-spacing:.3em;color:#FF0000;font-weight:600;margin-bottom:18px">WHO</div>
+      <h2 style="font-size:clamp(26px,3.8vw,48px);font-weight:800;letter-spacing:-.02em;line-height:1.16;color:#fff;text-shadow:0 2px 20px rgba(0,0,0,.5)">참여 대상</h2>
+      <p style="margin-top:20px;font-size:clamp(15px,1.4vw,18px);line-height:1.7;color:#d3d4da;max-width:60ch;text-wrap:pretty;text-shadow:0 1px 10px rgba(0,0,0,.5)">교육과 산업 현장의 실무자가 최신 기술과 장비를<br>직접 경험하는 실습 중심 연수를 운영합니다.</p>
+      <div style="margin-top:52px;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px">
+        <sc-for list="{{whos}}" as="w" hint-placeholder-count="4">
+          <div style="border:1px solid rgba(255,255,255,.14);border-radius:16px;padding:30px 28px;background:rgba(12,13,16,.72);backdrop-filter:blur(6px);transition:transform .3s,border-color .3s" style-hover="transform:translateY(-6px);border-color:rgba(255,42,42,.5)">
+            <div style="font-family:'Space Grotesk',sans-serif;font-size:13px;color:#FF0000;font-weight:600;margin-bottom:20px">{{w.no}}</div>
+            <h3 style="font-size:20px;font-weight:800;color:#fff;margin-bottom:10px">{{w.t}}</h3>
+            <p style="font-size:14px;line-height:1.6;color:#c2c3c9;margin-bottom:18px;min-height:44px">{{w.d}}</p>
+            <span style="display:inline-block;font-size:12px;letter-spacing:.04em;color:#dfe0e5;border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:5px 13px">{{w.tag}}</span>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- VISION -->
+  <section id="vision" style="position:relative;z-index:1;background:rgba(5,5,7,.5);padding:clamp(100px,13vw,180px) clamp(20px,6vw,80px);text-align:center">
+    <div style="max-width:1000px;margin:0 auto">
+      <div style="font-family:'Space Grotesk',sans-serif;font-size:13px;letter-spacing:.3em;color:#FF0000;font-weight:600;margin-bottom:22px">VISION</div>
+      <h2 style="font-size:clamp(30px,5vw,64px);font-weight:800;letter-spacing:-.025em;line-height:1.1;color:#fff;text-wrap:balance">교육 장비를 넘어,<br>미래 기술 교육 플랫폼으로</h2>
+      <div style="margin-top:56px;display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px;text-align:left">
+        <sc-for list="{{visions}}" as="v" hint-placeholder-count="3">
+          <div style="border:1px solid rgba(255,255,255,.16);border-radius:16px;padding:28px 26px;background:rgba(12,13,16,.7);backdrop-filter:blur(8px);transition:transform .3s,border-color .3s" style-hover="transform:translateY(-6px);border-color:rgba(255,42,42,.5)">
+            <h3 style="font-size:19px;font-weight:800;color:#FF0000;margin-bottom:12px">{{v.t}}</h3>
+            <p style="font-size:14.5px;line-height:1.65;color:#d3d4da">{{v.d}}</p>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" style="position:relative;z-index:1;border-top:1px solid rgba(255,255,255,.08);padding:clamp(90px,11vw,150px) clamp(20px,6vw,80px) clamp(120px,20vh,220px);scroll-margin-top:72px;min-height:100vh;display:flex;align-items:center">
+    <div style="max-width:1180px;margin:0 auto">
+      <div style="font-family:'Space Grotesk',sans-serif;font-size:12px;letter-spacing:.28em;color:#FF0000;font-weight:600;margin-bottom:24px">CONTACT</div>
+      <h2 style="font-size:clamp(24px,3.2vw,40px);font-weight:800;letter-spacing:-.02em;line-height:1.16;color:#fff;margin-bottom:34px;text-shadow:0 2px 20px rgba(0,0,0,.5)">기술 교육의 미래,<br>OPEN LAB에서 함께 만들어갑니다</h2>
+      <div style="display:flex;flex-wrap:wrap;gap:14px">
+        <a href="https://www.ieg.kr" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:11px;background:#FF0000;color:#fff;font-size:15px;font-weight:700;padding:15px 26px;border-radius:14px;box-shadow:0 10px 30px rgba(255,0,0,.32);transition:transform .25s,box-shadow .25s" style-hover="transform:translateY(-3px);box-shadow:0 16px 40px rgba(255,0,0,.48)"><span style="font-family:'Space Grotesk',sans-serif;font-size:11px;letter-spacing:.12em;opacity:.8">WEB</span>www.ieg.kr</a>
+        <a href="tel:0316982200" style="display:inline-flex;align-items:center;gap:11px;background:rgba(255,255,255,.06);color:#fff;font-size:15px;font-weight:700;padding:15px 26px;border-radius:14px;border:1px solid rgba(255,255,255,.2);transition:background .25s,transform .25s" style-hover="background:rgba(255,255,255,.14);transform:translateY(-3px)"><span style="font-family:'Space Grotesk',sans-serif;font-size:11px;letter-spacing:.12em;color:#FF0000">TEL</span>031-698-2200</a>
+        <a href="https://map.naver.com/p/search/경기 성남시 중원구 순환로198번길 7" target="_blank" style="display:inline-flex;align-items:center;gap:11px;background:rgba(255,255,255,.06);color:#fff;font-size:15px;font-weight:700;padding:15px 26px;border-radius:14px;border:1px solid rgba(255,255,255,.2);transition:background .25s,transform .25s" style-hover="background:rgba(255,255,255,.14);transform:translateY(-3px)"><span style="font-family:'Space Grotesk',sans-serif;font-size:11px;letter-spacing:.12em;color:#FF0000">MAP</span>오시는 길</a>
+      </div>
+      <div style="margin-top:22px;display:inline-flex;align-items:flex-start;gap:9px;color:#c2c3c9;font-size:14px"><span style="font-family:'Space Grotesk',sans-serif;font-size:11px;letter-spacing:.14em;color:#FF0000;padding-top:2px">ADDR</span>경기 성남시 중원구 순환로198번길 7 · 혁신관 2층</div>
+      <div style="margin-top:64px;padding-top:30px;border-top:1px solid rgba(255,255,255,.1);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:24px">
+        <div style="display:flex;align-items:center;gap:26px">
+          <img src="assets/logo/openlab-white.png" alt="OPEN LAB" style="height:24px;width:auto">
+          <span style="width:1px;height:26px;background:rgba(255,255,255,.2)"></span>
+          <img src="assets/logo/ieg.png" alt="IEG" style="height:34px;width:auto;display:block">
+        </div>
+        <div style="font-size:12.5px;color:#8a8b92;font-family:'Space Grotesk',sans-serif;letter-spacing:.04em">© 2026 아이지 · IEG Co., Ltd. All rights reserved.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- IMAGE LIGHTBOX -->
+  <sc-if value="{{lightboxOpen}}" hint-placeholder-val="{{false}}">
+    <div onClick="{{closeLightbox}}" style="position:fixed;inset:0;z-index:110;background:rgba(4,4,6,.9);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;padding:clamp(16px,5vw,72px);animation:ovfade .25s ease;cursor:zoom-out">
+      <img ref="{{lbRef}}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="OPEN LAB" style="max-width:100%;max-height:100%;border-radius:16px;box-shadow:0 30px 90px rgba(0,0,0,.6);animation:lbin .3s cubic-bezier(.2,.7,.2,1)">
+      <button onClick="{{closeLightbox}}" style="position:fixed;top:24px;right:24px;width:46px;height:46px;border-radius:50%;border:1px solid rgba(255,255,255,.3);background:rgba(0,0,0,.4);color:#fff;font-size:22px;cursor:pointer;line-height:1">×</button>
+    </div>
+  </sc-if>
+
+  <!-- SCROLL PROGRESS BAR -->
+  <div data-progress style="position:fixed;top:0;left:0;height:3px;width:0%;background:#FF0000;z-index:60;transition:width .1s linear;box-shadow:0 0 10px rgba(255,0,0,.6)"></div>
+
+  <!-- FLOATING ACTIONS -->
+  <div data-fab style="position:fixed;right:clamp(16px,2.4vw,28px);bottom:clamp(16px,2.4vw,28px);z-index:60;display:flex;flex-direction:column;gap:12px;opacity:0;transform:translateY(16px);pointer-events:none;transition:opacity .35s,transform .35s">
+    <a href="#contact" aria-label="문의" style="width:54px;height:54px;border-radius:50%;background:#FF0000;color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 28px rgba(255,0,0,.44);font-size:13px;font-weight:700;letter-spacing:.02em" style-hover="transform:scale(1.08)">문의</a>
+    <button onClick="{{scrollTop}}" aria-label="맨 위로" style="width:54px;height:54px;border-radius:50%;background:rgba(20,22,28,.86);color:#fff;border:1px solid rgba(255,255,255,.18);backdrop-filter:blur(6px);cursor:pointer;font-size:20px;display:flex;align-items:center;justify-content:center" style-hover="background:rgba(40,42,50,.92)">↑</button>
+  </div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { activeVid: 0, modal: null, lightbox: null, zone: null, menuOpen: false, w: (typeof window !== 'undefined' ? window.innerWidth : 1280) };
+
+  componentDidMount() {
+    this._onResize = () => this.setState({ w: window.innerWidth });
+    window.addEventListener('resize', this._onResize, { passive: true });
+
+    this._vids = Array.from(document.querySelectorAll('[data-bgvideo]'));
+    this._count = this._vids.length || 7;
+    // Play each clip ONCE; start the crossfade to the next ~1.6s before it ends
+    // so the two overlap and the transition is a smooth fade (no hard cut).
+    this._vids.forEach((v, i) => {
+      v.muted = true; v.defaultMuted = true; v.playsInline = true; v.loop = false;
+      v.addEventListener('timeupdate', () => {
+        if (i !== (this.state.activeVid || 0)) return;
+        const dur = v.duration;
+        if (dur && !isNaN(dur) && dur - v.currentTime <= 1.6) this._advance(i);
+      });
+      v.addEventListener('ended', () => { if (i === (this.state.activeVid || 0)) this._advance(i); });
+    });
+    this._advance = (from) => {
+      const next = (from + 1) % this._count;
+      const nv = this._vids[next];
+      if (nv) { try { nv.currentTime = 0; } catch (e) {} const pr = nv.play && nv.play(); if (pr && pr.catch) pr.catch(() => {}); }
+      this.setState({ activeVid: next });
+    };
+    this.setState({ activeVid: 0 });
+
+    // Scroll progress bar + scrollspy + floating buttons (direct DOM, no re-render).
+    this._bar = document.querySelector('[data-progress]');
+    this._fab = document.querySelector('[data-fab]');
+    this._spy = Array.from(document.querySelectorAll('[data-spy]'));
+    this._onScroll = () => {
+      if (this._raf) return;
+      this._raf = requestAnimationFrame(() => {
+        this._raf = null;
+        const h = document.documentElement.scrollHeight - window.innerHeight;
+        const p = h > 0 ? Math.min(1, Math.max(0, window.scrollY / h)) : 0;
+        if (this._bar) this._bar.style.width = (p * 100).toFixed(2) + '%';
+        if (this._fab) {
+          const show = window.scrollY > 600;
+          this._fab.style.opacity = show ? '1' : '0';
+          this._fab.style.transform = show ? 'none' : 'translateY(16px)';
+          this._fab.style.pointerEvents = show ? 'auto' : 'none';
+        }
+        this._applySpy();
+      });
+    };
+    window.addEventListener('scroll', this._onScroll, { passive: true });
+    this._onScroll();
+
+    // Scroll-reveal for sections (fade + rise as they enter the viewport).
+    this._io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.style.opacity = '1';
+          e.target.style.transform = 'none';
+          if (e.target.hasAttribute('data-counters')) this._runCounters(e.target);
+          this._io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+    Array.from(document.querySelectorAll('section')).forEach((s, i) => {
+      if (s.id === 'top') return;
+      s.style.opacity = '0';
+      s.style.transform = 'translateY(34px)';
+      s.style.transition = 'opacity .9s cubic-bezier(.2,.7,.2,1), transform .9s cubic-bezier(.2,.7,.2,1)';
+      if (s.id === 'company') s.setAttribute('data-counters', '1');
+      this._io.observe(s);
+    });
+
+    this._onKey = (e) => { if (e.key === 'Escape') this.setState({ modal: null, lightbox: null }); };
+    window.addEventListener('keydown', this._onKey);
+  }
+  _applySpy() {
+    const spy = this._spy || (this._spy = Array.from(document.querySelectorAll('[data-spy]')));
+    if (!spy.length) return;
+    const mid = window.scrollY + window.innerHeight * 0.35;
+    let cur = null;
+    spy.forEach(a => {
+      const sec = document.getElementById(a.getAttribute('data-spy'));
+      if (sec && sec.offsetTop <= mid) cur = a.getAttribute('data-spy');
+    });
+    this._curSpy = cur;
+    spy.forEach(a => { a.style.color = (a.getAttribute('data-spy') === cur) ? '#FF0000' : '#33353c'; });
+  }
+  scrollTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
+  _runCounters(root) {
+    Array.from(root.querySelectorAll('[data-count]')).forEach(el => {
+      const raw = el.getAttribute('data-count');
+      const num = parseInt(raw, 10);
+      if (isNaN(num)) return;                       // non-numeric (e.g. "성남") stays as-is
+      const dur = 1200, t0 = performance.now();
+      const step = (now) => {
+        const k = Math.min(1, (now - t0) / dur);
+        const eased = 1 - Math.pow(1 - k, 3);
+        el.textContent = Math.round(num * eased).toLocaleString();
+        if (k < 1) requestAnimationFrame(step);
+        else el.textContent = raw;
+      };
+      requestAnimationFrame(step);
+    });
+  }
+  componentDidUpdate() {
+    // Play the active clip. Leave the just-finished clip on its last frame while
+    // it fades out (don't reset currentTime — that would cause a visible jump).
+    const a = this.state.activeVid || 0;
+    (this._vids || []).forEach((v, i) => {
+      if (i === a) { const pr = v.play && v.play(); if (pr && pr.catch) pr.catch(() => {}); }
+    });
+    if (this._lbRef && this._lbRef.current && this.state.lightbox) {
+      if (this._lbRef.current.getAttribute('src') !== this.state.lightbox) this._lbRef.current.src = this.state.lightbox;
+    }
+    // Re-apply scrollspy colors after a state-driven re-render (video advance).
+    this._spy = Array.from(document.querySelectorAll('[data-spy]'));
+    this._applySpy();
+  }
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this._onScroll);
+    window.removeEventListener('resize', this._onResize);
+    window.removeEventListener('keydown', this._onKey);
+    if (this._cycle) clearInterval(this._cycle);
+    if (this._io) this._io.disconnect();
+  }
+
+  data() {
+    const P = 'assets/curriculum/';
+    return [
+      { id:'sf', no:'01', name:'스마트팩토리', en:'SMART FACTORY',
+        overview:'생산자동화·공정제어·센서 및 스마트 제조 실습',
+        items:[
+          { n:'01', img:P+'sf-1.jpg', t:'비전 실습', d:'OMRON FH 비전과 Mitsubishi PLC 연동을 통한 이미지 검사 및 자동 제어 실습' },
+          { n:'02', img:P+'sf-2.jpg', t:'자동화 시스템 실습장비', d:'PLC·HMI·비전·스카라 로봇을 통합한 컨베이어 이송 및 Pick & Place 공정 제어' },
+          { n:'03', img:P+'sf-3.jpg', t:'스마트공장 검정장비', d:'PLC·HMI·비전·협동로봇 연계 자격검정 대비 및 Pick & Place 시퀀스 구현' },
+          { n:'04', img:P+'sf-4.jpg', t:'DX Labeler 생산장비', d:'특허 롤투롤 기반 무중단 연속 라벨링 및 생산 계획 연동 스마트 자동화' },
+        ] },
+      { id:'robot', no:'02', name:'로봇', en:'ROBOT',
+        overview:'산업용·협동로봇 및 로봇 응용 실습',
+        items:[
+          { n:'01', img:'assets/space/showroom2.jpg', t:'안내 로봇', d:'OPEN Lab과 교육 환경을 친절하게 안내하는 스마트 가이드. 오픈형 기술 체험 공간을 둘러보는 방문객에게 전시 시설 소개 및 맞춤형 정보를 제공합니다.' },
+          { n:'02', img:P+'ai-2.png', t:'피지컬 AI 실습 로봇', d:'AI 비전 인식 기술과 협동로봇 제어를 결합해 AI 알고리즘을 실제 물리적 동작으로 구현하는 차세대 실습장비. 그리퍼·레이저 각인기 등 교체형 툴로 Pick&Place부터 정밀 가공까지 실습합니다.' },
+        ] },
+      { id:'ctrl', no:'03', name:'자동제어', en:'CONTROL',
+        overview:'PLC·HMI·모션제어 및 제어 시스템 실습',
+        items:[
+          { n:'01', img:P+'ctrl-1.jpg', t:'PLC 실습장비 Set', d:'PLC 제어 알고리즘을 구축하고 산업용 설비와의 연동 제어를 구현 — 시퀀스 로직부터 위치·속도·공압 제어까지' },
+          { n:'02', img:P+'ctrl-2.jpg', t:'LS산전 PLC 실습장비', d:'LS산전 PLC 기반 제어 로직 구현. 입출력 제어부터 센서 연동 모니터링, DC·스테핑·리니어 모터 정밀 제어' },
+        ] },
+      { id:'elec', no:'04', name:'전기·전자', en:'ELECTRONICS',
+        overview:'전기회로·전자제어·계측 및 실습 장비 교육',
+        items:[
+          { n:'01', img:P+'elec-1.jpg', t:'소음·진동 진단 실습장비', d:'NI CompactDAQ 기반 소음·진동 데이터 수집 분석 및 예지보전·기계정비 실기 대비 학습' },
+          { n:'02', img:P+'elec-2.jpg', t:'센서 실습장비', d:'다양한 산업용 센서의 검출 원리 비교 및 위치·거리·회전각 등 물리량 측정 실습' },
+          { n:'03', img:P+'elec-3.jpg', t:'시퀀스 실습장비', d:'전장 부품을 활용한 전기 회로 배선, 모터 정·역회전 및 인터록·보호 회로 구성' },
+          { n:'04', img:P+'elec-4.jpg', t:'전기기계구조 실습장비', d:'전동기·발전기 분해 조립 및 직류/교류, 단상/3상 전기기계의 운전 특성 측정' },
+        ] },
+      { id:'semi', no:'05', name:'반도체', en:'SEMICONDUCTOR',
+        overview:'반도체 공정·장비 이해를 위한 실습교육',
+        items:[
+          { n:'U1', img:P+'semi-1.jpg', t:'스핀코터', d:'웨이퍼에 균일하고 정확한 두께의 코팅층을 형성' },
+          { n:'U2', img:P+'semi-2.jpg', t:'디벨로퍼', d:'포토레지스트 층의 패턴 형성을 위해 빛에 노출된 층을 제거' },
+          { n:'U3', img:P+'semi-3.jpg', t:'반도체 이송모듈', d:'웨이퍼의 이송 과정을 완전 자동화' },
+          { n:'U4', img:P+'semi-4.jpg', t:'베이크', d:'포토레지스트 층이 고르게 형성되도록 가열 및 냉각' },
+          { n:'U5', img:P+'semi-5.jpg', t:'가스 유틸리티', d:'일정한 압력의 가스 조절 및 통과 가스량 검출, 다이어프램 밸브 작동' },
+          { n:'U6', img:P+'semi-6.jpg', t:'이송+프로세스 모듈', d:'청정 환경을 유지하며 크로스 이송으로 웨이퍼를 이송' },
+          { n:'U7', img:P+'semi-7.jpg', t:'CVD 실습장비', d:'반응 가스와 온도·압력 제어로 균일한 박막 증착 및 공정 변수별 막 특성 분석' },
+        ] },
+      { id:'ai', no:'06', name:'피지컬 AI', en:'PHYSICAL AI',
+        overview:'인공지능과 실제 장비를 연계한 융합 실습',
+        items:[
+          { n:'01', img:P+'ai-1.png', t:'피지컬 AI 테스트베드', d:'PLC 프로그래밍·디지털 트윈·AI를 통합해 생산 공정을 자동 최적화하는 양방향 피지컬 AI 데모 장치' },
+          { n:'02', img:'assets/space/interior3.png', t:'VR Station + LMS', d:'VR 기기·콘텐츠 관리와 학습자 체험 모니터링·성취도 평가를 통합한 가상 실습 관리 시스템' },
+        ] },
+    ];
+  }
+
+  renderVals() {
+    const a = this.state.activeVid || 0;
+    const op = (i) => (a === i ? 1 : 0).toFixed(3);
+    const fields = this.data();
+    const openImg = (src) => this.setState({ lightbox: src });
+
+    const zoneBase = [
+      { no:'01', name:'쇼룸', d:'스마트팩토리 · 로봇 전시', left:'60%', top:'75%' },
+      { no:'02', name:'실기 실습실', d:'산업 장비 직접 실습', left:'80%', top:'26%' },
+      { no:'03', name:'이론 교육실', d:'강의 · 세미나', left:'23%', top:'26%' },
+      { no:'04', name:'휴게 라운지', d:'네트워킹 공간', left:'51%', top:'26%' },
+    ];
+    const activeZone = this.state.zone;
+    const zones = zoneBase.map((z, i) => {
+      const on = activeZone === i;
+      return { ...z,
+        scale: on ? '1.16' : '1',
+        pin: on ? '#FF0000' : 'rgba(10,11,13,.85)',
+        rowBg: on ? '#ffecec' : '#f6f6f8',
+        rowBorder: on ? 'rgba(255,0,0,.5)' : 'rgba(0,0,0,.09)',
+        onEnter: () => this.setState({ zone: i }),
+        onLeave: () => this.setState(s => (s.zone === i ? { zone: null } : null)),
+      };
+    });
+
+    const g1 = ['assets/space/showroom1.jpg','assets/space/theory1.jpg','assets/space/lab1.jpg','assets/space/entrance2.jpg','assets/space/showroom4.jpg','assets/space/person1.jpg'];
+    const g2 = ['assets/space/theory2.jpg','assets/space/showroom5.jpg','assets/space/lab2.jpg','assets/space/showroom3.jpg','assets/space/person3.jpg','assets/space/theory3.jpg'];
+    const galRow = (arr) => arr.concat(arr).map(src => ({ src, onOpen: () => openImg(src) }));
+
+    return {
+      op1: op(0), op2: op(1), op3: op(2), op4: op(3), op5: op(4), op6: op(5), op7: op(6),
+      dim: '0.38',
+      hintDisplay: 'flex',
+      cueOpacity: '1',
+
+      stats: [
+        { value:'2010', unit:'', label:'설립 연도' },
+        { value:'62', unit:'명', label:'임직원 규모' },
+        { value:'237', unit:'억', label:'연 매출 규모' },
+        { value:'성남', unit:'', label:'본사 · 아이지빌딩' },
+      ],
+      missions: [
+        { no:'01', t:'현장과 교육의 연결', d:'산업 기술을 교육 현장에 그대로 적용합니다.' },
+        { no:'02', t:'미래 인재 양성', d:'첨단 산업이 요구하는 전문 인력을 육성합니다.' },
+        { no:'03', t:'기술 격차 해소', d:'학교와 산업 사이의 실무 격차를 축소합니다.' },
+      ],
+      overview: fields.map(f => ({ no:f.no, en:f.en, name:f.name, d:f.overview })),
+      zones,
+      onOpenR2: () => openImg('assets/space/interior2.png'),
+      onOpenR3: () => openImg('assets/space/interior3.png'),
+      spaces: [
+        { en:'SHOWROOM', name:'쇼룸', img:'assets/space/showroom.jpg', d:'스마트팩토리 AI Factory 라인과 로봇을 전시한 브랜드 전시 공간', onOpen: () => openImg('assets/space/showroom.jpg') },
+        { en:'PRACTICE LAB', name:'실기 실습실', img:'assets/space/lab.jpg', d:'PLC·HMI 트레이너 등 실산업 장비로 직접 실습하는 공간', onOpen: () => openImg('assets/space/lab.jpg') },
+        { en:'THEORY ROOM', name:'이론 교육실', img:'assets/space/theory.jpg', d:'실습 전 개념을 다지는 강의·세미나 중심 이론 학습 공간', onOpen: () => openImg('assets/space/theory.jpg') },
+        { en:'LOUNGE', name:'휴게실', img:'assets/space/lounge.jpg', d:'교육 사이 재충전과 네트워킹을 위한 편안한 라운지', onOpen: () => openImg('assets/space/lounge.jpg') },
+      ],
+      galleryRow1: galRow(g1),
+      galleryRow2: galRow(g2),
+      whos: [
+        { no:'01', t:'교원', d:'초·중·고 및 대학의 기술·공학 담당 교원', tag:'학교 현장' },
+        { no:'02', t:'교육 전문직', d:'장학사·연구사 등 교육 정책·연구 전문직', tag:'교육 행정' },
+        { no:'03', t:'기관 관계자', d:'학교 및 교육기관의 실습 담당·실무 관계자', tag:'실습 운영' },
+        { no:'04', t:'기업 재직자', d:'자동화·스마트팩토리 실무 역량이 필요한 재직자', tag:'산업 현장' },
+      ],
+      visions: [
+        { t:'온·오프라인 통합', d:'이론과 실습을 하나의 플랫폼으로 연결합니다.' },
+        { t:'테크에듀 리더', d:'국내 기술교육 장비·솔루션을 선도합니다.' },
+        { t:'글로벌 확장', d:'글로벌 테크에듀 생태계 조성을 본격화합니다.' },
+      ],
+
+      isMobile: this.state.w < 720,
+      navLinksDisplay: this.state.w < 720 ? 'none' : 'flex',
+      burgerDisplay: this.state.w < 720 ? 'inline-flex' : 'none',
+      menuOpen: this.state.menuOpen && this.state.w < 720,
+      toggleMenu: () => this.setState(s => ({ menuOpen: !s.menuOpen })),
+      closeMenu: () => this.setState({ menuOpen: false }),
+      scrollTop: () => this.scrollTop(),
+
+      lightboxOpen: !!this.state.lightbox,
+      lbRef: (this._lbRef || (this._lbRef = React.createRef())),
+      closeLightbox: () => this.setState({ lightbox: null }),
+    };
+  }
+}
+</script>
+</body>
+</html>

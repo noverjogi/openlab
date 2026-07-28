@@ -1,0 +1,7 @@
+# 원본 소재 / 작업 검수 파일 (용량이 커서 저장소에서 제외)
+0/uploads/
+0/work/
+
+# 에디터 / OS
+.DS_Store
+Thumbs.db
