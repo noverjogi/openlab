@@ -175,6 +175,9 @@
               <span style="font-size:18px;font-weight:700;color:#FF0000">{{s.unit}}</span>
             </div>
             <div style="margin-top:12px;font-size:14px;color:#b3b4ba">{{s.label}}</div>
+            <sc-if value="{{s.hasNote}}" hint-placeholder-val="{{false}}">
+              <div style="margin-top:6px;font-size:12px;color:#83848a">{{s.note}}</div>
+            </sc-if>
           </div>
         </sc-for>
       </div>
@@ -621,10 +624,10 @@ class Component extends DCLogic {
 
       stats: [
         { value:'2009', unit:'', label:'설립 연도' },
-        { value:'56', unit:'명', label:'임직원 규모' },
-        { value:'180', unit:'억', label:'연 매출 규모' },
-        { value:'성남', unit:'', label:'본사 · 아이지빌딩' },
-      ],
+        { value:'56', unit:'명', label:'임직원 규모', note:'2026년 7월 기준' },
+        { value:'180', unit:'억', label:'연 매출 규모', note:'2025년 말 기준' },
+        { value:'성남시', unit:'', label:'본사 · 아이지빌딩' },
+      ].map(s => ({ ...s, hasNote: !!s.note })),
       missions: [
         { no:'01', t:'현장과 교육의 연결', d:'산업 기술을 교육 현장에 그대로 적용합니다.' },
         { no:'02', t:'미래 인재 양성', d:'첨단 산업이 요구하는 전문 인력을 육성합니다.' },
