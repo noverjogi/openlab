@@ -51,7 +51,7 @@
       <a href="#platform" data-spy="platform" style="color:#33353c;font-size:14px;font-weight:600" style-hover="color:#FF0000">플랫폼</a>
       <a href="#curriculum" data-spy="curriculum" style="color:#33353c;font-size:14px;font-weight:600" style-hover="color:#FF0000">커리큘럼</a>
       <a href="#space" data-spy="space" style="color:#33353c;font-size:14px;font-weight:600" style-hover="color:#FF0000">공간</a>
-      <a href="#who" data-spy="who" style="color:#33353c;font-size:14px;font-weight:600" style-hover="color:#FF0000">대상</a>
+      <a href="#who" data-spy="who" style="color:#33353c;font-size:14px;font-weight:600" style-hover="color:#FF0000">운영</a>
       <a href="#contact" data-spy="contact" style="color:#33353c;font-size:14px;font-weight:600" style-hover="color:#FF0000">문의</a>
     </div>
     <button onClick="{{toggleMenu}}" aria-label="menu" style="display:{{burgerDisplay}};flex-direction:column;justify-content:center;gap:5px;width:42px;height:42px;border:1px solid rgba(0,0,0,.12);border-radius:10px;background:#fff;cursor:pointer;align-items:center">
@@ -67,7 +67,7 @@
       <a href="#platform" onClick="{{closeMenu}}" style="color:#14161c;font-size:16px;font-weight:600;padding:14px 4px;border-bottom:1px solid rgba(0,0,0,.06)">플랫폼</a>
       <a href="#curriculum" onClick="{{closeMenu}}" style="color:#14161c;font-size:16px;font-weight:600;padding:14px 4px;border-bottom:1px solid rgba(0,0,0,.06)">커리큘럼</a>
       <a href="#space" onClick="{{closeMenu}}" style="color:#14161c;font-size:16px;font-weight:600;padding:14px 4px;border-bottom:1px solid rgba(0,0,0,.06)">공간</a>
-      <a href="#who" onClick="{{closeMenu}}" style="color:#14161c;font-size:16px;font-weight:600;padding:14px 4px;border-bottom:1px solid rgba(0,0,0,.06)">대상</a>
+      <a href="#who" onClick="{{closeMenu}}" style="color:#14161c;font-size:16px;font-weight:600;padding:14px 4px;border-bottom:1px solid rgba(0,0,0,.06)">운영</a>
       <a href="#contact" onClick="{{closeMenu}}" style="margin-top:14px;display:inline-flex;align-items:center;justify-content:center;background:#FF0000;color:#fff;font-size:15px;font-weight:700;padding:13px 18px;border-radius:12px">문의</a>
     </div>
   </sc-if>
@@ -80,7 +80,7 @@
       <div class="reveal" style="font-family:'Space Grotesk',sans-serif;font-size:clamp(11px,1.1vw,13px);letter-spacing:.34em;color:#FF0000;font-weight:600;text-transform:uppercase">Online + Offline Tech-Edu Platform</div>
       <p class="reveal" style="margin-top:26px;font-size:clamp(13px,1.5vw,19px);line-height:1.9;color:#e2e3e8;white-space:nowrap;text-shadow:0 1px 12px rgba(0,0,0,.55)">아이지의 온라인 이론 학습과 오프라인 실습을 결합한 통합 기술 교육 플랫폼.<br>스마트팩토리부터 피지컬 AI까지, 미래 산업의 기술을 직접 만납니다.</p>
       <div class="reveal" style="margin-top:34px;display:flex;gap:14px;flex-wrap:wrap;justify-content:center">
-        <a href="#contact" style="display:inline-flex;align-items:center;gap:9px;background:#FF0000;color:#fff;font-size:15px;font-weight:700;padding:14px 26px;border-radius:999px;box-shadow:0 10px 30px rgba(255,0,0,.34);transition:transform .25s,box-shadow .25s" style-hover="transform:translateY(-3px);box-shadow:0 16px 40px rgba(255,0,0,.5)">문의하기 <span style="font-size:17px">→</span></a>
+        <a href="#contact" style="display:inline-flex;align-items:center;gap:9px;background:#FF0000;color:#fff;font-size:15px;font-weight:700;padding:14px 26px;border-radius:999px;box-shadow:0 10px 30px rgba(255,0,0,.34);transition:transform .25s,box-shadow .25s" style-hover="transform:translateY(-3px);box-shadow:0 16px 40px rgba(255,0,0,.5)">문의하기</a>
         <a href="#promo" style="display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.08);color:#fff;font-size:15px;font-weight:700;padding:14px 24px;border-radius:999px;border:1px solid rgba(255,255,255,.28);backdrop-filter:blur(6px);transition:background .25s,transform .25s" style-hover="background:rgba(255,255,255,.16);transform:translateY(-3px)"><span style="display:inline-flex;width:22px;height:22px;border-radius:50%;background:#FF0000;align-items:center;justify-content:center"><svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true"><path d="M8.6 7.1v7.8L15.2 11z" fill="#fff" stroke="#fff" stroke-width="1.5" stroke-linejoin="round"/></svg></span>영상 보기</a>
       </div>
       <div class="reveal" style="margin-top:26px;font-family:'Space Grotesk',sans-serif;font-size:14px;letter-spacing:.1em;color:#FF0000;font-weight:600">www.ieg.kr</div>
@@ -199,6 +199,28 @@
     </div>
   </section>
 
+  <!-- HISTORY -->
+  <section id="history" style="position:relative;z-index:1;padding:clamp(90px,11vw,150px) clamp(20px,6vw,80px)">
+    <div style="max-width:1240px;margin:0 auto">
+      <div style="text-align:center;max-width:62ch;margin:0 auto 60px">
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:13px;letter-spacing:.3em;color:#FF0000;font-weight:600;margin-bottom:18px">HISTORY</div>
+        <h2 style="font-size:clamp(28px,4vw,50px);font-weight:800;letter-spacing:-.02em;line-height:1.14;color:#fff;text-shadow:0 2px 20px rgba(0,0,0,.5)">성장의 발자취</h2>
+        <p style="margin-top:20px;font-size:clamp(15px,1.4vw,18px);line-height:1.7;color:#cfd0d6;text-wrap:pretty">설립 이후 꾸준한 기술 축적을 거쳐, 2026년 온·오프라인 통합 교육 플랫폼으로 도약합니다.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px">
+        <sc-for list="{{history}}" as="hi" hint-placeholder-count="4">
+          <div style="border:1px solid {{hi.border}};border-radius:18px;padding:32px 28px;background:{{hi.bg}};backdrop-filter:blur(8px);border-top:3px solid {{hi.accent}};transition:transform .3s cubic-bezier(.2,.7,.2,1)" style-hover="transform:translateY(-6px)">
+            <div style="font-family:'Space Grotesk',sans-serif;font-size:34px;font-weight:700;color:{{hi.yearColor}};line-height:1">{{hi.year}}</div>
+            <div style="width:34px;height:3px;background:#FF0000;margin:14px 0 20px"></div>
+            <sc-for list="{{hi.lines}}" as="ln" hint-placeholder-count="2">
+              <p style="font-size:14.5px;line-height:1.65;color:#c8c9cf;margin-bottom:7px">{{ln}}</p>
+            </sc-for>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
   <!-- CURRICULUM OVERVIEW -->
   <section id="curriculum" style="position:relative;z-index:1;padding:clamp(90px,12vw,160px) clamp(20px,6vw,80px)">
     <div style="max-width:1240px;margin:0 auto">
@@ -217,6 +239,40 @@
           </div>
         </sc-for>
       </div>
+    </div>
+  </section>
+
+  <!-- EQUIPMENT (분야별 교육을 한눈에) -->
+  <section id="equipment" style="position:relative;z-index:1;background:rgba(5,5,7,.55);padding:clamp(90px,11vw,150px) clamp(20px,6vw,80px)">
+    <div style="max-width:1280px;margin:0 auto">
+      <div style="text-align:center;max-width:62ch;margin:0 auto 60px">
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:13px;letter-spacing:.3em;color:#FF0000;font-weight:600;margin-bottom:18px">EQUIPMENT</div>
+        <h2 style="font-size:clamp(28px,4vw,50px);font-weight:800;letter-spacing:-.02em;line-height:1.14;color:#fff">분야별 교육을 한눈에</h2>
+        <p style="margin-top:20px;font-size:clamp(15px,1.4vw,18px);line-height:1.7;color:#cfd0d6;text-wrap:pretty">각 분야에서 실제로 다루는 실습 장비입니다. 이미지를 누르면 크게 볼 수 있습니다.</p>
+      </div>
+      <sc-for list="{{tracks}}" as="tk" hint-placeholder-count="6">
+        <div style="margin-bottom:clamp(48px,5vw,72px)">
+          <div style="display:flex;align-items:baseline;gap:14px;padding-bottom:16px;margin-bottom:26px;border-bottom:1px solid rgba(255,255,255,.13)">
+            <span style="font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:700;color:#FF0000">{{tk.no}}</span>
+            <h3 style="font-size:clamp(20px,2.4vw,27px);font-weight:800;color:#fff">{{tk.name}}</h3>
+            <span style="font-family:'Space Grotesk',sans-serif;font-size:11px;letter-spacing:.18em;color:#8a8b92">{{tk.en}}</span>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px">
+            <sc-for list="{{tk.items}}" as="it" hint-placeholder-count="4">
+              <div style="border:1px solid rgba(255,255,255,.12);border-radius:16px;overflow:hidden;background:rgba(12,13,16,.72);backdrop-filter:blur(6px);display:flex;flex-direction:column;transition:transform .3s cubic-bezier(.2,.7,.2,1),border-color .3s" style-hover="border-color:rgba(255,42,42,.5);transform:translateY(-5px)">
+                <div onClick="{{it.onOpen}}" style="position:relative;aspect-ratio:4/3;overflow:hidden;background:#0b0c10;cursor:zoom-in">
+                  <img src="{{it.img}}" alt="{{it.t}}" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.2,.7,.2,1)" style-hover="transform:scale(1.06)">
+                  <span style="position:absolute;top:12px;left:12px;font-family:'Space Grotesk',sans-serif;font-size:11px;font-weight:700;color:#fff;background:rgba(255,0,0,.9);border-radius:6px;padding:4px 8px">{{it.n}}</span>
+                </div>
+                <div style="padding:20px 20px 24px;flex:1">
+                  <h4 style="font-size:16.5px;font-weight:800;color:#fff;margin-bottom:10px;line-height:1.35">{{it.t}}</h4>
+                  <p style="font-size:13.5px;line-height:1.65;color:#b9bac0">{{it.d}}</p>
+                </div>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+      </sc-for>
     </div>
   </section>
 
@@ -301,7 +357,7 @@
   <section id="who" style="position:relative;z-index:1;padding:clamp(90px,12vw,160px) clamp(20px,6vw,80px)">
     <div style="max-width:1180px;margin:0 auto">
       <div style="font-family:'Space Grotesk',sans-serif;font-size:13px;letter-spacing:.3em;color:#FF0000;font-weight:600;margin-bottom:18px">WHO</div>
-      <h2 style="font-size:clamp(26px,3.8vw,48px);font-weight:800;letter-spacing:-.02em;line-height:1.16;color:#fff;text-shadow:0 2px 20px rgba(0,0,0,.5)">참여 대상</h2>
+      <h2 style="font-size:clamp(26px,3.8vw,48px);font-weight:800;letter-spacing:-.02em;line-height:1.16;color:#fff;text-shadow:0 2px 20px rgba(0,0,0,.5)">누가 참여하나요</h2>
       <p style="margin-top:20px;font-size:clamp(15px,1.4vw,18px);line-height:1.7;color:#d3d4da;max-width:60ch;text-wrap:pretty;text-shadow:0 1px 10px rgba(0,0,0,.5)">교육과 산업 현장의 실무자가 최신 기술과 장비를<br>직접 경험하는 실습 중심 연수를 운영합니다.</p>
       <div style="margin-top:52px;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px">
         <sc-for list="{{whos}}" as="w" hint-placeholder-count="4">
@@ -597,6 +653,21 @@ class Component extends DCLogic {
         { no:'03', t:'기술 격차 해소', d:'학교와 산업 사이의 실무 격차를 축소합니다.' },
       ],
       overview: fields.map(f => ({ no:f.no, en:f.en, name:f.name, d:f.overview })),
+      tracks: fields.map(f => ({
+        no:f.no, en:f.en, name:f.name,
+        items: f.items.map(it => ({ ...it, onOpen: () => openImg(it.img) })),
+      })),
+      history: [
+        { year:'2009', lines:['㈜아이지 설립','자동제어·전기전자·스마트팩토리 교육장비 개발·공급'] },
+        { year:'2024', lines:['임직원 약 56명','연 매출 약 180억원 규모로 성장'] },
+        { year:'2025', lines:['메인비즈(MAINBIZ) 및 PMS 인증 취득'] },
+        { year:'2026', lines:['OPEN LAB 조성 (혁신관 2층)','온라인 플랫폼 IEGLAB.COM 구축·운영','첨단기술 연수기관 지정 추진'], now:true },
+      ].map(h => ({ ...h,
+        accent: h.now ? '#FF0000' : 'rgba(255,255,255,.16)',
+        border: h.now ? 'rgba(255,42,42,.45)' : 'rgba(255,255,255,.14)',
+        bg: h.now ? 'rgba(26,14,15,.85)' : 'rgba(12,13,16,.72)',
+        yearColor: h.now ? '#FF0000' : '#fff',
+      })),
       zones,
       onOpenR2: () => openImg('assets/space/interior2.png'),
       onOpenR3: () => openImg('assets/space/interior3.png'),
