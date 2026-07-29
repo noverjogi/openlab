@@ -199,28 +199,6 @@
     </div>
   </section>
 
-  <!-- HISTORY -->
-  <section id="history" style="position:relative;z-index:1;padding:clamp(90px,11vw,150px) clamp(20px,6vw,80px)">
-    <div style="max-width:1240px;margin:0 auto">
-      <div style="text-align:center;max-width:62ch;margin:0 auto 60px">
-        <div style="font-family:'Space Grotesk',sans-serif;font-size:13px;letter-spacing:.3em;color:#FF0000;font-weight:600;margin-bottom:18px">HISTORY</div>
-        <h2 style="font-size:clamp(28px,4vw,50px);font-weight:800;letter-spacing:-.02em;line-height:1.14;color:#fff;text-shadow:0 2px 20px rgba(0,0,0,.5)">성장의 발자취</h2>
-        <p style="margin-top:20px;font-size:clamp(15px,1.4vw,18px);line-height:1.7;color:#cfd0d6;text-wrap:pretty">설립 이후 꾸준한 기술 축적을 거쳐, 2026년 온·오프라인 통합 교육 플랫폼으로 도약합니다.</p>
-      </div>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px">
-        <sc-for list="{{history}}" as="hi" hint-placeholder-count="4">
-          <div style="border:1px solid {{hi.border}};border-radius:18px;padding:32px 28px;background:{{hi.bg}};backdrop-filter:blur(8px);border-top:3px solid {{hi.accent}};transition:transform .3s cubic-bezier(.2,.7,.2,1)" style-hover="transform:translateY(-6px)">
-            <div style="font-family:'Space Grotesk',sans-serif;font-size:34px;font-weight:700;color:{{hi.yearColor}};line-height:1">{{hi.year}}</div>
-            <div style="width:34px;height:3px;background:#FF0000;margin:14px 0 20px"></div>
-            <sc-for list="{{hi.lines}}" as="ln" hint-placeholder-count="2">
-              <p style="font-size:14.5px;line-height:1.65;color:#c8c9cf;margin-bottom:7px">{{ln}}</p>
-            </sc-for>
-          </div>
-        </sc-for>
-      </div>
-    </div>
-  </section>
-
   <!-- CURRICULUM OVERVIEW -->
   <section id="curriculum" style="position:relative;z-index:1;padding:clamp(90px,12vw,160px) clamp(20px,6vw,80px)">
     <div style="max-width:1240px;margin:0 auto">
@@ -656,17 +634,6 @@ class Component extends DCLogic {
       tracks: fields.map(f => ({
         no:f.no, en:f.en, name:f.name,
         items: f.items.map(it => ({ ...it, onOpen: () => openImg(it.img) })),
-      })),
-      history: [
-        { year:'2009', lines:['㈜아이지 설립','자동제어·전기전자·스마트팩토리 교육장비 개발·공급'] },
-        { year:'2024', lines:['임직원 약 56명','연 매출 약 180억원 규모로 성장'] },
-        { year:'2025', lines:['메인비즈(MAINBIZ) 및 PMS 인증 취득'] },
-        { year:'2026', lines:['OPEN LAB 조성 (혁신관 2층)','온라인 플랫폼 IEGLAB.COM 구축·운영','첨단기술 연수기관 지정 추진'], now:true },
-      ].map(h => ({ ...h,
-        accent: h.now ? '#FF0000' : 'rgba(255,255,255,.16)',
-        border: h.now ? 'rgba(255,42,42,.45)' : 'rgba(255,255,255,.14)',
-        bg: h.now ? 'rgba(26,14,15,.85)' : 'rgba(12,13,16,.72)',
-        yearColor: h.now ? '#FF0000' : '#fff',
       })),
       zones,
       onOpenR2: () => openImg('assets/space/interior2.png'),
