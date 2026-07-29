@@ -257,39 +257,8 @@
     </div>
   </section>
 
-  <!-- LAYOUT (isometric renders) -->
-  <section id="layout" style="position:relative;z-index:1;padding:clamp(90px,11vw,150px) clamp(20px,6vw,80px)">
-    <div style="max-width:1280px;margin:0 auto">
-      <div style="text-align:center;max-width:60ch;margin:0 auto 56px">
-        <div style="font-family:'Space Grotesk',sans-serif;font-size:13px;letter-spacing:.3em;color:#FF0000;font-weight:600;margin-bottom:18px">LAYOUT</div>
-        <h2 style="font-size:clamp(26px,3.8vw,48px);font-weight:800;letter-spacing:-.02em;line-height:1.14;color:#fff;text-shadow:0 2px 20px rgba(0,0,0,.5)">하나의 동선으로 연결된 공간</h2>
-      </div>
-      <div style="border:1px solid rgba(0,0,0,.08);border-radius:20px;background:#ffffff;padding:clamp(18px,2.2vw,26px);display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(18px,2.6vw,32px);align-items:center;margin-bottom:18px;box-shadow:0 20px 60px rgba(0,0,0,.35)">
-        <div style="position:relative;border-radius:14px;overflow:hidden;background:#ffffff">
-          <img src="assets/space/interior1.png" alt="전체 평면도" loading="lazy" style="width:100%;height:auto;display:block">
-          <sc-for list="{{zones}}" as="z" hint-placeholder-count="4">
-            <span onMouseenter="{{z.onEnter}}" onMouseleave="{{z.onLeave}}" style="position:absolute;left:{{z.left}};top:{{z.top}};transform:translate(-50%,-50%) scale({{z.scale}});font-size:12px;font-weight:700;color:#fff;background:{{z.pin}};padding:4px 10px;border-radius:7px;white-space:nowrap;box-shadow:0 2px 8px rgba(0,0,0,.35);transition:transform .25s,background .25s;cursor:default">{{z.name}}</span>
-          </sc-for>
-        </div>
-        <div style="display:flex;flex-direction:column;gap:12px">
-          <sc-for list="{{zones}}" as="z" hint-placeholder-count="4">
-            <div onMouseenter="{{z.onEnter}}" onMouseleave="{{z.onLeave}}" style="display:flex;align-items:center;gap:16px;padding:14px 18px;border:1px solid {{z.rowBorder}};border-radius:12px;background:{{z.rowBg}};transition:border-color .25s,background .25s">
-              <span style="width:26px;height:26px;flex:none;border-radius:50%;background:#FF0000;color:#fff;font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center">{{z.no}}</span>
-              <span style="font-size:17px;font-weight:800;color:#14161c;flex:none;min-width:96px">{{z.name}}</span>
-              <span style="font-size:14px;color:#4c4d54">{{z.d}}</span>
-            </div>
-          </sc-for>
-        </div>
-      </div>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px">
-        <figure onClick="{{onOpenR2}}" style="border:1px solid rgba(255,255,255,.14);border-radius:18px;overflow:hidden;background:#ffffff;cursor:zoom-in"><div style="aspect-ratio:16/10;overflow:hidden;background:#ffffff"><img src="assets/space/interior2.png" alt="OPEN LAB 공간 구성" loading="lazy" style="width:100%;height:100%;object-fit:contain;display:block;transition:transform .5s" style-hover="transform:scale(1.04)"></div></figure>
-        <figure onClick="{{onOpenR3}}" style="border:1px solid rgba(255,255,255,.14);border-radius:18px;overflow:hidden;background:#ffffff;cursor:zoom-in"><div style="aspect-ratio:16/10;overflow:hidden;background:#ffffff"><img src="assets/space/interior3.png" alt="OPEN LAB 공간 구성" loading="lazy" style="width:100%;height:100%;object-fit:contain;display:block;transition:transform .5s" style-hover="transform:scale(1.04)"></div></figure>
-      </div>
-    </div>
-  </section>
-
   <!-- SPACE -->
-  <section id="space" style="position:relative;z-index:1;background:rgba(5,5,7,.5);padding:clamp(90px,11vw,150px) clamp(20px,6vw,80px)">
+  <section id="space" style="position:relative;z-index:1;padding:clamp(90px,11vw,150px) clamp(20px,6vw,80px)">
     <div style="max-width:1280px;margin:0 auto">
       <div style="text-align:center;max-width:62ch;margin:0 auto 30px">
         <div style="font-family:'Space Grotesk',sans-serif;font-size:13px;letter-spacing:.3em;color:#FF0000;font-weight:600;margin-bottom:18px">OPEN LAB · SPACE</div>
@@ -330,6 +299,37 @@
             </div>
           </sc-for>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LAYOUT (isometric renders) -->
+  <section id="layout" style="position:relative;z-index:1;background:rgba(5,5,7,.5);padding:clamp(90px,11vw,150px) clamp(20px,6vw,80px)">
+    <div style="max-width:1280px;margin:0 auto">
+      <div style="text-align:center;max-width:60ch;margin:0 auto 56px">
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:13px;letter-spacing:.3em;color:#FF0000;font-weight:600;margin-bottom:18px">LAYOUT</div>
+        <h2 style="font-size:clamp(26px,3.8vw,48px);font-weight:800;letter-spacing:-.02em;line-height:1.14;color:#fff;text-shadow:0 2px 20px rgba(0,0,0,.5)">하나의 동선으로 연결된 공간</h2>
+      </div>
+      <div style="border:1px solid rgba(0,0,0,.08);border-radius:20px;background:#ffffff;padding:clamp(18px,2.2vw,26px);display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(18px,2.6vw,32px);align-items:center;margin-bottom:18px;box-shadow:0 20px 60px rgba(0,0,0,.35)">
+        <div style="position:relative;border-radius:14px;overflow:hidden;background:#ffffff">
+          <img src="assets/space/interior1.png" alt="전체 평면도" loading="lazy" style="width:100%;height:auto;display:block">
+          <sc-for list="{{zones}}" as="z" hint-placeholder-count="4">
+            <span onMouseenter="{{z.onEnter}}" onMouseleave="{{z.onLeave}}" style="position:absolute;left:{{z.left}};top:{{z.top}};transform:translate(-50%,-50%) scale({{z.scale}});font-size:12px;font-weight:700;color:#fff;background:{{z.pin}};padding:4px 10px;border-radius:7px;white-space:nowrap;box-shadow:0 2px 8px rgba(0,0,0,.35);transition:transform .25s,background .25s;cursor:default">{{z.name}}</span>
+          </sc-for>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <sc-for list="{{zones}}" as="z" hint-placeholder-count="4">
+            <div onMouseenter="{{z.onEnter}}" onMouseleave="{{z.onLeave}}" style="display:flex;align-items:center;gap:16px;padding:14px 18px;border:1px solid {{z.rowBorder}};border-radius:12px;background:{{z.rowBg}};transition:border-color .25s,background .25s">
+              <span style="width:26px;height:26px;flex:none;border-radius:50%;background:#FF0000;color:#fff;font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center">{{z.no}}</span>
+              <span style="font-size:17px;font-weight:800;color:#14161c;flex:none;min-width:96px">{{z.name}}</span>
+              <span style="font-size:14px;color:#4c4d54">{{z.d}}</span>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px">
+        <figure onClick="{{onOpenR2}}" style="border:1px solid rgba(255,255,255,.14);border-radius:18px;overflow:hidden;background:#ffffff;cursor:zoom-in"><div style="aspect-ratio:16/10;overflow:hidden;background:#ffffff"><img src="assets/space/interior2.png" alt="OPEN LAB 공간 구성" loading="lazy" style="width:100%;height:100%;object-fit:contain;display:block;transition:transform .5s" style-hover="transform:scale(1.04)"></div></figure>
+        <figure onClick="{{onOpenR3}}" style="border:1px solid rgba(255,255,255,.14);border-radius:18px;overflow:hidden;background:#ffffff;cursor:zoom-in"><div style="aspect-ratio:16/10;overflow:hidden;background:#ffffff"><img src="assets/space/interior3.png" alt="OPEN LAB 공간 구성" loading="lazy" style="width:100%;height:100%;object-fit:contain;display:block;transition:transform .5s" style-hover="transform:scale(1.04)"></div></figure>
       </div>
     </div>
   </section>
