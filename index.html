@@ -280,6 +280,42 @@
         </sc-for>
       </div>
 
+      <!-- PROGRAMS per space -->
+      <div style="margin:64px 0 26px;text-align:center;font-family:'Space Grotesk',sans-serif;font-size:12px;letter-spacing:.24em;color:#9a9ba1">OPEN LAB에서는 어떤 교육을?</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px;align-items:stretch">
+        <sc-for list="{{programs}}" as="pg" hint-placeholder-count="3">
+          <div style="border:1px solid rgba(255,255,255,.14);border-radius:18px;padding:30px 28px;background:rgba(12,13,16,.72);backdrop-filter:blur(8px);display:flex;flex-direction:column;transition:transform .3s cubic-bezier(.2,.7,.2,1),border-color .3s" style-hover="border-color:rgba(255,42,42,.5);transform:translateY(-6px)">
+            <div style="display:flex;align-items:baseline;gap:10px;margin-bottom:12px">
+              <span style="font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:700;color:#FF0000">{{pg.no}}</span>
+              <h3 style="font-size:21px;font-weight:800;color:#fff">{{pg.name}}</h3>
+            </div>
+            <p style="font-size:14px;line-height:1.65;color:#bcbdc3;margin-bottom:18px">{{pg.d}}</p>
+            <sc-if value="{{pg.hasMeta}}" hint-placeholder-val="{{false}}">
+              <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px">
+                <sc-for list="{{pg.meta}}" as="mt" hint-placeholder-count="1">
+                  <span style="display:inline-flex;align-items:baseline;gap:6px;border:1px solid rgba(255,255,255,.16);border-radius:999px;padding:6px 13px;background:rgba(255,255,255,.04)">
+                    <span style="font-size:11.5px;color:#8a8b92">{{mt.k}}</span>
+                    <span style="font-size:13px;font-weight:700;color:#fff">{{mt.v}}</span>
+                  </span>
+                </sc-for>
+              </div>
+            </sc-if>
+            <div style="font-family:'Space Grotesk',sans-serif;font-size:11px;letter-spacing:.16em;color:#FF0000;font-weight:600;padding-top:16px;border-top:1px solid rgba(255,255,255,.12);margin-bottom:14px">{{pg.listLabel}}</div>
+            <sc-for list="{{pg.items}}" as="pi" hint-placeholder-count="4">
+              <div style="display:flex;gap:10px;margin-bottom:12px">
+                <span style="color:#FF0000;font-size:13px;line-height:1.5;flex:none">—</span>
+                <div>
+                  <div style="font-size:14.5px;font-weight:700;color:#e6e7ec;line-height:1.45">{{pi.t}}</div>
+                  <sc-if value="{{pi.hasD}}" hint-placeholder-val="{{false}}">
+                    <div style="margin-top:4px;font-size:13px;line-height:1.6;color:#a9aab0">{{pi.d}}</div>
+                  </sc-if>
+                </div>
+              </div>
+            </sc-for>
+          </div>
+        </sc-for>
+      </div>
+
       <!-- GALLERY marquee -->
       <div style="margin:64px 0 24px;text-align:center;font-family:'Space Grotesk',sans-serif;font-size:12px;letter-spacing:.24em;color:#9a9ba1">GALLERY · 현장 스케치</div>
       <div style="overflow:hidden;margin-bottom:14px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)">
@@ -647,6 +683,34 @@ class Component extends DCLogic {
         { en:'THEORY ROOM', name:'이론 교육실', img:'assets/space/theory.jpg', d:'실습 전 개념을 다지는 강의·세미나 중심 이론 학습 공간', onOpen: () => openImg('assets/space/theory.jpg') },
         { en:'LOUNGE', name:'휴게 라운지', img:'assets/space/lounge.jpg', d:'교육 사이 재충전과 네트워킹을 위한 편안한 라운지', onOpen: () => openImg('assets/space/lounge.jpg') },
       ],
+      programs: [
+        { no:'01', name:'이론 교육실', d:'쾌적하고 집중도 높은 첨단 강의 환경',
+          meta:[{ k:'최대 수용', v:'20명' }], listLabel:'핵심 교육 항목',
+          items:[
+            { t:'PLC 기초 · 심화 개념' },
+            { t:'산업용 및 협동 로봇 이론' },
+            { t:'인공지능(AI) · 스마트팩토리 개론' },
+            { t:'광범위한 산업자동화 이론 교육' },
+          ] },
+        { no:'02', name:'실기 실습실', d:'실산업 장비로 이론을 손으로 체득하는 공간',
+          meta:[{ k:'최대 수용', v:'20명' }, { k:'주요 장비', v:'아이지 PLC 트레이너' }], listLabel:'핵심 교육 항목',
+          items:[
+            { t:'PLC 제어 실습', d:'기초 프로그래밍 · 시퀀스 제어 · 시뮬레이션' },
+            { t:'HMI 제어', d:'PLC 연동 터치패널(HMI) 작화 · 모니터링' },
+            { t:'공압 & 전기 실습', d:'공압 액추에이터 제어 · 전기 회로 구성' },
+            { t:'모터 & 인버터 제어', d:'인버터 활용 AC/DC 모터 속도 · 위치 제어' },
+          ] },
+        { no:'03', name:'쇼룸', d:'아이지의 독자적인 최첨단 솔루션을 직접 눈으로 확인하고 체험하는 공간',
+          meta:[], listLabel:'전시 및 체험 장비',
+          items:[
+            { t:'PLC & 로봇 제어 시스템', d:'실시간 구동 자동화 라인' },
+            { t:'Physical AI', d:'AI와 PLC · 로봇 제어가 융합된 지능형 자동화' },
+            { t:'XR 확장현실 체험', d:'XR 기반 디지털 트윈 · 가상 실습 체험' },
+          ] },
+      ].map(p => ({ ...p,
+        hasMeta: p.meta.length > 0,
+        items: p.items.map(i => ({ ...i, hasD: !!i.d })),
+      })),
       galleryRow1: galRow(g1),
       galleryRow2: galRow(g2),
       whos: [
