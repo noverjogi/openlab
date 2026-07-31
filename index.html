@@ -33,10 +33,7 @@
     <video data-bgvideo src="assets/video/bg1.mp4" muted playsinline preload="auto" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) scale(1.06);min-width:100%;min-height:100%;width:auto;height:auto;object-fit:cover;opacity:{{op1}};transition:opacity 1.6s ease"></video>
     <video data-bgvideo src="assets/video/bg2.mp4" muted playsinline preload="auto" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) scale(1.06);min-width:100%;min-height:100%;width:auto;height:auto;object-fit:cover;opacity:{{op2}};transition:opacity 1.6s ease"></video>
     <video data-bgvideo src="assets/video/bg3.mp4" muted playsinline preload="auto" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) scale(1.06);min-width:100%;min-height:100%;width:auto;height:auto;object-fit:cover;opacity:{{op3}};transition:opacity 1.6s ease"></video>
-    <video data-bgvideo src="assets/video/bg4.mp4" muted playsinline preload="auto" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) scale(1.06);min-width:100%;min-height:100%;width:auto;height:auto;object-fit:cover;opacity:{{op4}};transition:opacity 1.6s ease"></video>
-    <video data-bgvideo src="assets/video/bg5.mp4" muted playsinline preload="auto" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) scale(1.06);min-width:100%;min-height:100%;width:auto;height:auto;object-fit:cover;opacity:{{op5}};transition:opacity 1.6s ease"></video>
-    <video data-bgvideo src="assets/video/bg6.mp4" muted playsinline preload="auto" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) scale(1.06);min-width:100%;min-height:100%;width:auto;height:auto;object-fit:cover;opacity:{{op6}};transition:opacity 1.6s ease"></video>
-    <video data-bgvideo src="assets/video/bg7.mp4" muted playsinline preload="auto" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) scale(1.06);min-width:100%;min-height:100%;width:auto;height:auto;object-fit:cover;opacity:{{op7}};transition:opacity 1.6s ease"></video>
+    <video data-bgvideo src="assets/video/bg4.mp4" muted playsinline preload="auto" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) scale(1.06);min-width:100%;min-height:100%;width:auto;height:auto;object-fit:cover;opacity:{{op4}};transition:opacity 1.6s ease"></video>    <video data-bgvideo src="assets/video/bg7.mp4" muted playsinline preload="auto" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) scale(1.06);min-width:100%;min-height:100%;width:auto;height:auto;object-fit:cover;opacity:{{op5}};transition:opacity 1.6s ease"></video>
     <div style="position:absolute;inset:0;background:rgba(6,6,8,{{dim}})"></div>
     <div style="position:absolute;inset:0;background:radial-gradient(130% 100% at 50% 40%,rgba(0,0,0,0) 42%,rgba(0,0,0,.5) 100%)"></div>
   </div>
@@ -455,7 +452,7 @@ class Component extends DCLogic {
     window.addEventListener('resize', this._onResize, { passive: true });
 
     this._vids = Array.from(document.querySelectorAll('[data-bgvideo]'));
-    this._count = this._vids.length || 7;
+    this._count = this._vids.length || 5;
     // Play each clip ONCE; start the crossfade to the next ~1.6s before it ends
     // so the two overlap and the transition is a smooth fade (no hard cut).
     this._vids.forEach((v, i) => {
@@ -653,7 +650,7 @@ class Component extends DCLogic {
     const galRow = (arr) => arr.concat(arr).map(src => ({ src, onOpen: () => openImg(src) }));
 
     return {
-      op1: op(0), op2: op(1), op3: op(2), op4: op(3), op5: op(4), op6: op(5), op7: op(6),
+      op1: op(0), op2: op(1), op3: op(2), op4: op(3), op5: op(4),
       dim: '0.38',
       hintDisplay: 'flex',
       cueOpacity: '1',
