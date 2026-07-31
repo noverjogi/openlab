@@ -631,8 +631,8 @@ class Component extends DCLogic {
 
     const zoneBase = [
       { no:'01', name:'쇼룸', d:'스마트팩토리 · 로봇 전시', left:'60%', top:'75%' },
-      { no:'02', name:'실기 실습실', d:'산업 장비 직접 실습', left:'80%', top:'26%' },
-      { no:'03', name:'이론 교육실', d:'강의 · 세미나', left:'23%', top:'26%' },
+      { no:'02', name:'이론 교육실', d:'강의 · 세미나', left:'23%', top:'26%' },
+      { no:'03', name:'실기 실습실', d:'산업 장비 직접 실습', left:'80%', top:'26%' },
       { no:'04', name:'휴게 라운지', d:'네트워킹 공간', left:'51%', top:'26%' },
     ];
     const activeZone = this.state.zone;
@@ -679,8 +679,8 @@ class Component extends DCLogic {
       onOpenR3: () => openImg('assets/space/interior3.png'),
       spaces: [
         { en:'SHOWROOM', name:'쇼룸', img:'assets/space/showroom.jpg', d:'스마트팩토리 AI Factory 라인과 로봇을 전시한 브랜드 전시 공간', onOpen: () => openImg('assets/space/showroom.jpg') },
-        { en:'PRACTICE LAB', name:'실기 실습실', img:'assets/space/lab.jpg', d:'PLC·HMI 트레이너 등 실산업 장비로 직접 실습하는 공간', onOpen: () => openImg('assets/space/lab.jpg') },
         { en:'THEORY ROOM', name:'이론 교육실', img:'assets/space/theory.jpg', d:'실습 전 개념을 다지는 강의·세미나 중심 이론 학습 공간', onOpen: () => openImg('assets/space/theory.jpg') },
+        { en:'PRACTICE LAB', name:'실기 실습실', img:'assets/space/lab.jpg', d:'PLC·HMI 트레이너 등 실산업 장비로 직접 실습하는 공간', onOpen: () => openImg('assets/space/lab.jpg') },
         { en:'LOUNGE', name:'휴게 라운지', img:'assets/space/lounge.jpg', d:'교육 사이 재충전과 네트워킹을 위한 편안한 라운지', onOpen: () => openImg('assets/space/lounge.jpg') },
       ],
       programs: [

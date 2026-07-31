@@ -1,7 +1,4 @@
-# 원본 소재 / 작업 검수 파일 (배포에서 제외 - vercel deploy는 .gitignore를 따르지 않음)
-0/uploads
-0/work
-0/.thumbnail
+# 장비 사진 원본 (vercel deploy 는 .gitignore 를 따르지 않으므로 여기에도 명시)
 장비 이미지
 
 # 에디터 / OS
